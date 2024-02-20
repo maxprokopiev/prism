@@ -31,8 +31,12 @@ task make_no_debug: [:templates] do
   sh "make all-no-debug"
 end
 
+task :boo do
+  puts "===> BOO!"
+end
+
 # decorate the gem build task with prerequisites
-task build: [:templates, :check_annotations, :check_manifest]
+task build: [:boo, :templates, :check_annotations, :check_manifest]
 
 # the C extension
 task "compile:prism" => ["templates"] # must be before the ExtensionTask is created
